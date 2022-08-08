@@ -7,37 +7,13 @@ const ingredients = [
   'Condiments',
 ];
 
-const potatoesItemEl = document.createElement('li');
-potatoesItemEl.textContent = 'Potatoes';
-potatoesItemEl.classList.add('item');
-console.log(potatoesItemEl);
+const containerIngredients = document.querySelector('ul');
 
-const mushroomsItemEl = document.createElement('li');
-mushroomsItemEl.textContent = 'Mushrooms';
-mushroomsItemEl.classList.add('item');
-console.log(mushroomsItemEl);
+const makeIngredientsEl = ingredients.map((ingredient) => {
+  const ingredientEl = document.createElement('li');
+  ingredientEl.textContent = ingredient;
+  ingredientEl.classList.add('item');
+  return ingredientEl;
+});
 
-const garlicItemEl = document.createElement('li');
-garlicItemEl.textContent = 'Garlic';
-garlicItemEl.classList.add('item');
-console.log(garlicItemEl);
-
-const tomatosItemEl = document.createElement('li');
-tomatosItemEl.textContent = 'Tomatos';
-tomatosItemEl.classList.add('item');
-console.log(tomatosItemEl);
-
-const herbsItemEl = document.createElement('li');
-herbsItemEl.textContent = 'Herbs';
-herbsItemEl.classList.add('item');
-console.log(herbsItemEl);
-
-const condimentsItemEl = document.createElement('li');
-condimentsItemEl.textContent = 'Condiments';
-condimentsItemEl.classList.add('item');
-console.log(condimentsItemEl);
-
-const ingredientsListEl = document.querySelector('ul');
-// console.log(ingredientsListEl);
-ingredientsListEl.append(potatoesItemEl, mushroomsItemEl, garlicItemEl, tomatosItemEl, herbsItemEl, condimentsItemEl);
-console.log(ingredientsListEl);
+containerIngredients.append(...makeIngredientsEl);

@@ -14,10 +14,19 @@ const images = [
 ];
 
 const listImagesEl = document.querySelector('.gallery');
+const gridGallery = makeGallery(images);
 
-images.forEach(element => {
-  listImagesEl.classList.add('list-gallery')
-  listImagesEl.insertAdjacentHTML('afterbegin', `<li><img src = "${element.url}" alt = "${element.alt}"  width = 250px height = 150px /></li>`);
-});
-  
-console.log(listImagesEl);
+listImagesEl.insertAdjacentHTML('afterbegin', gridGallery);
+
+function makeGallery(images) {
+  listImagesEl.classList.add('list-gallery');
+  return images
+    .map(({ url, alt }) => {
+    return `
+    <li><img src = "${url}" alt = "${alt}" width = 250px height = 150px /></li>`;
+    })
+    .join('');
+}
+
+
+ 
